@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 10:09:47 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/28 12:10:58 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # define HEIGHT 1250
 # define WIDTH 2500
+
+typedef struct	s_pt
+{
+	float	x;
+	float	y;
+}				t_pt;
 
 typedef struct	s_img
 {
@@ -41,4 +47,6 @@ typedef struct	s_fract
 void		put_pixel_img(t_fract *fract, int x, int y, int color);
 t_fract		*init_fract(const char *s);
 void		mandel(t_fract *fract);
+void		julia(t_fract *fract);
+
 #endif
