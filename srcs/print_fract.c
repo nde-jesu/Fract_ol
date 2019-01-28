@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 10:38:01 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/28 12:14:34 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ void	mandel(t_fract *fract)
 	float		x2;
 	float		y1;
 	float		y2;
-	int			max_x;
-	int			max_y;
+	int			img_x;
+	int			img_y;
 	int			x;
 	int			y;
-	int			zoom;
+	float			zoom;
 	int			ite_max;
-	int			c_r;
-	int			c_i;
-	int			z_r;
-	int			z_i;
+	float			c_r;
+	float			c_i;
+	float			z_r;
+	float			z_i;
 	int			i;
-	int			tmp;
+	float			tmp;
 
 	x1 = -2.1;
 	x2 = 0.6;
@@ -38,13 +38,13 @@ void	mandel(t_fract *fract)
 	y2 = 1.2;
 	zoom = 500;
 	ite_max = 50;
-	max_x = (x2 - x1) * zoom;
-	max_y = (y2 - y1) * zoom;
-	y = 0;
-	while (y < max_y)
+	img_x = (x2 - x1) * zoom;
+	img_y = (y2 - y1) * zoom;
+	x = 0;
+	while (x < img_x)
 	{
-		x = 0;
-		while (x < max_x)
+		y = 0;
+		while (y < img_y)
 		{
 			c_r = x / zoom + x1;
 			c_i = y / zoom + y1;
