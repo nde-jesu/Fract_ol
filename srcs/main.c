@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:27:13 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 10:18:31 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/28 18:16:01 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ int		main(int ac, char **av)
 
 	if (ac != 2)
 		return (error());
-	//if ((!(ft_strcmp(av[1], "Mandelbrot"))) || (!(ft_strcmp(av[1],"Julia"))) ||
-//			(!(ft_strcmp(av[1], "Another"))))
-//		return (error());
-	fract = init_fract(av[1]);
-	mandel(fract);
+	if (!(fract = init_fract(ft_strlowcase(av[1]))))
+		return (error());
+	if (fract->type == 1)
+		mandel(fract);
+	else if (fract->type == 2)
+		julia(fract);
+//	print_menu(fract);
+	get_ctrl(fract);
 	mlx_loop(fract->mlx->ptr);
 	return (0);
 }

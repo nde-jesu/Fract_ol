@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:02:23 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/09 14:06:22 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/28 14:54:28 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char			*ft_strccat(char *dst, const char *src);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strndup(const char *s1, size_t n);
 char			*ft_strrev(char const *s);
+char			*ft_strlowcase(char *s);
 
 /*
 ** All to_functions

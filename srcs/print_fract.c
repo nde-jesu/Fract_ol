@@ -6,63 +6,48 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 12:55:37 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/28 17:23:31 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <mlx.h>
 
-void	mandel(t_fract *fract)
+static int	norme(t_fract *fract, int i)
 {
-	float	x1;
-	float	x2;
-	float	y1;
-	float	y2;
-	int		img_x;
-	int		img_y;
-	int		x;
-	int		y;
-	float	zoom;
-	int		ite_max;
-	float	c_r;
-	float	c_i;
-	float	z_r;
-	float	z_i;
-	int		i;
 	float	tmp;
 
-	x1 = -2.1;
-	x2 = 0.6;
-	y1 = -1.2;
-	y2 = 1.2;
+	tmp = fract->z.x;
+	fract->z.x = fract->z.x * fract->z.x - fract->z.y * fract->z.y + fract->c.x;
+	fract->z.y = 2 * fract->z.y * tmp + fract->c.y;
+	++i;
+	return (i);
+}
+
+void		mandel(t_fract *fract)
+{
+	t_pt	ct;
+	float	zoom;
+	int		i;
+
 	zoom = 500;
-	ite_max = 50;
-	img_x = (x2 - x1) * zoom;
-	img_y = (y2 - y1) * zoom;
-	x = 0;
-	while (x < img_x)
+	ct.x = -1;
+	while (++ct.x < HEIGHT)
 	{
-		y = 0;
-		while (y < img_y)
+		ct.y = 0;
+		while (ct.y < WIDTH)
 		{
-			c_r = x / zoom + x1;
-			c_i = y / zoom + y1;
-			z_r = 0;
-			z_i = 0;
+			fract->c = init_pt(ct.x / zoom + fract->min.x, \
+					ct.y / zoom + fract->min.y);
+			fract->z = init_pt(0, 0);
 			i = 0;
-			while (z_r * z_r + z_i * z_i < 4 && i < ite_max)
-			{
-				tmp = z_r;
-				z_r = z_r * z_r - z_i * z_i + c_r;
-				z_i = 2 * z_i * tmp + c_i;
-				++i;
-			}
-			if (i == ite_max)
-				put_pixel_img(fract, x, y, 0xEAEAEA);
-			++y;
+			while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 \
+					&& i < fract->i_max)
+				i = norme(fract, i);
+			if (i == fract->i_max)
+				put_pixel_img(fract, ct.x, ct.y, 0xEAEAEA);
+			++ct.y;
 		}
-		++x;
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
 			fract->mlx->img->ptr, 0, 0);

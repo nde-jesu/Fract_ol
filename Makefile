@@ -6,14 +6,14 @@
 #    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/16 08:17:01 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/01/28 10:00:52 by nde-jesu         ###   ########.fr        #
+#    Updated: 2019/01/28 18:17:42 by reda-con         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall -Werror -Wextra
 LIBRARIES = -lmlx -lft -L$(LIBFT_DIR) -L$(MLX_DIR) -framework OpenGL \
 			-framework AppKit
 INCLUDES = -I$(HEADERS_DIR) -I$(LIBFT_HEAD) -I$(MLX_HEAD)
@@ -30,7 +30,7 @@ HEADERS_LIST = fractol.h mlx_macro_keys.h
 HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
-SRC_LIST = main.c image_control.c init.c print_fract.c
+SRC_LIST = main.c image_control.c init.c print_fract.c julia.c menu.c control.c
 SRC_DIR = ./srcs/
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
