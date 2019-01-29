@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 18:14:50 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/01/29 09:08:13 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ typedef struct	s_fract
 	t_pt	max;
 	t_pt	z;
 	t_pt	c;
+	t_pt	delta;
 	int		i_max;
 	t_mlx	*mlx;
 	int		type;
+	float	zoom;
 }				t_fract;
 
 void		put_pixel_img(t_fract *fract, int x, int y, int color);
@@ -57,5 +59,7 @@ void		julia(t_fract *fract);
 t_pt		init_pt(float x, float y);
 void		print_menu(t_fract *fract);
 void		get_ctrl(t_fract *fract);
+t_fract		*new_img(t_fract *fract);
+void		zoom(int key, t_fract *fract);
 
 #endif
