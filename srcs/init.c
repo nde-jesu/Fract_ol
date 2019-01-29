@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 18:15:56 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/01/29 09:18:32 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void		init_fract2(t_fract *fract)
 		fract->max = init_pt(0.6, 1.2);
 	}
 	fract->i_max = 150;
+	fract->zoom = 100;
+	fract->delta = init_pt(0, 0);
 	fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
 			&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
 			&(fract->mlx->img->endian));

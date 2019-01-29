@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/01/28 18:42:09 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/01/29 08:35:55 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void			julia(t_fract *fract)
 {
 	int		i;
 	t_pt	ct;
-	float	zoom;
+/*	float	zoom;
 
-	zoom = 500;
+	zoom = 500;*/
 	ct.x = -1;
 	while (++ct.x < HEIGHT)
 	{
@@ -38,8 +38,8 @@ void			julia(t_fract *fract)
 		while (ct.y < WIDTH)
 		{
 			fract->c = init_pt(0.285, 0.01);
-			fract->z = init_pt(ct.x / zoom + fract->min.x, ct.y / zoom \
-					+ fract->min.y);
+			fract->z = init_pt(ct.x / fract->zoom + fract->min.x, \
+				ct.y / fract->zoom + fract->min.y);
 			i = 0;
 			while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 && \
 					i < fract->i_max)
@@ -50,5 +50,5 @@ void			julia(t_fract *fract)
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
-			fract->mlx->img->ptr, 0, 0);
+			fract->mlx->img->ptr, MENU_WIDTH, 0);
 }

@@ -6,7 +6,7 @@
 #    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/16 08:17:01 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/01/28 18:17:42 by reda-con         ###   ########.fr        #
+#    Updated: 2019/01/29 08:39:13 by nde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ HEADERS_LIST = fractol.h mlx_macro_keys.h
 HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
-SRC_LIST = main.c image_control.c init.c print_fract.c julia.c menu.c control.c
+SRC_LIST = main.c image_control.c init.c mandelbrot.c julia.c menu.c control.c \
+		   command.c
 SRC_DIR = ./srcs/
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

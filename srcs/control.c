@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 08:12:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 18:18:03 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/01/29 08:36:56 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int		user_command(int key, void *param)
 	fract = (t_fract*)param;
 	if (key == KEY_ESCAPE)
 		close(param);
-/*	if (key == KEY_PAD_ADD || key == KEY_PAD_SUB || key == KEY_MINUS \
+	if (key == KEY_PAD_ADD || key == KEY_PAD_SUB || key == KEY_MINUS \
 			|| key == KEY_EQUAL)
-		zoom(key, fdf);
-	else if (key == KEY_LEFT || key == KEY_RIGHT || key == KEY_DOWN \
+		zoom(key, fract);
+/*	else if (key == KEY_LEFT || key == KEY_RIGHT || key == KEY_DOWN \
 			|| key == KEY_UP)
 		translation(key, fdf);
 	else if (key == KEY_PAD_1 || key == KEY_PAD_2 || key == KEY_PAD_3\

@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 18:40:58 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/01/29 08:42:10 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static int	norme(t_fract *fract, int i)
 void		mandel(t_fract *fract)
 {
 	t_pt	ct;
-	float	zoom;
+	//float	zoom;
 	int		i;
 
-	zoom = 500;
+	//zoom = 500;
 	ct.x = -1;
 	while (++ct.x < HEIGHT)
 	{
 		ct.y = 0;
 		while (ct.y < WIDTH)
 		{
-			fract->c = init_pt(ct.x / zoom + fract->min.x, \
-					ct.y / zoom + fract->min.y);
+			fract->c = init_pt(ct.x / fract->zoom + fract->min.x, \
+					ct.y / fract->zoom + fract->min.y);
 			fract->z = init_pt(0, 0);
 			i = 0;
 			while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 \
@@ -50,5 +50,5 @@ void		mandel(t_fract *fract)
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
-			fract->mlx->img->ptr, 0, 0);
+			fract->mlx->img->ptr, MENU_WIDTH, 0);
 }
