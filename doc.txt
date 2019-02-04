@@ -1,0 +1,10 @@
+zoom (avec souris)
+julia avec souris
+nouvelle(s) fractale(s)
+couleurs
+
+lag
+hud (clickable)
+translation
+rotation z
++ de couleurs
