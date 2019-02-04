@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/29 08:42:10 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/04 10:29:46 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ static int	norme(t_fract *fract, int i)
 void		mandel(t_fract *fract)
 {
 	t_pt	ct;
-	//float	zoom;
 	int		i;
 
-	//zoom = 500;
 	ct.x = -1;
 	while (++ct.x < HEIGHT)
 	{

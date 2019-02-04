@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/01/29 08:35:55 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/04 10:31:01 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ void			julia(t_fract *fract)
 {
 	int		i;
 	t_pt	ct;
-/*	float	zoom;
 
-	zoom = 500;*/
 	ct.x = -1;
-	while (++ct.x < HEIGHT)
+	while (++ct.x < WIDTH)
 	{
 		ct.y = 0;
-		while (ct.y < WIDTH)
+		while (ct.y < HEIGHT)
 		{
 			fract->c = init_pt(0.285, 0.01);
 			fract->z = init_pt(ct.x / fract->zoom + fract->min.x, \

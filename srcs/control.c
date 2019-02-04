@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 08:12:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/29 08:36:56 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/04 11:53:05 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,37 @@ int		user_command(int key, void *param)
 	return (0);
 }
 
+int		press(int click, int x, int y, void *param)
+{
+	t_fract		*fract;
+
+	(void)x;
+	(void)y;
+	fract = (t_fract*)param;
+	if (click == MOUSE_SCROLL_UP || click == MOUSE_SCROLL_DOWN)
+		zoom(click, param);
+	else if (click == MOUSE_LEFT_BUTTON)
+		return (1);
+	return (0);
+}
+
+int		release()
+{
+	return (1);
+}
+
+int		move()
+{
+	return (1);
+}
+
 void	get_ctrl(t_fract *fract)
 {
 	mlx_hook(fract->mlx->win, 2, 0, user_command, fract);
 	mlx_hook(fract->mlx->win, 17, 0, close, fract);
-/*	mlx_hook(fract->mlx->win, 4, 0, press, fract);
+	mlx_hook(fract->mlx->win, 4, 0, press, fract);
 	mlx_hook(fract->mlx->win, 5, 0, release, fract);
-	mlx_hook(fract->mlx->win, 6, 0, move, fract);*/
+	mlx_hook(fract->mlx->win, 6, 0, move, fract);
 }
 
 t_fract	*new_img(t_fract *fract)
