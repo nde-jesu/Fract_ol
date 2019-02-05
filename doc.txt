@@ -1,8 +1,8 @@
-zoom (avec souris)
-julia avec souris
+affichage propre
 nouvelle(s) fractale(s)
 couleurs
 
+zoom (avec souris)
 lag
 hud (clickable)
 translation

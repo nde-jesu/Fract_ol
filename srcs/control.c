@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 08:12:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/04 11:53:05 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/05 14:56:06 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,6 @@ int		user_command(int key, void *param)
 	else if (key == KEY_PAGE_UP || key == KEY_PAGE_DOWN)
 		change_z(key, fdf);*/
 	return (0);
-}
-
-int		press(int click, int x, int y, void *param)
-{
-	t_fract		*fract;
-
-	(void)x;
-	(void)y;
-	fract = (t_fract*)param;
-	if (click == MOUSE_SCROLL_UP || click == MOUSE_SCROLL_DOWN)
-		zoom(click, param);
-	else if (click == MOUSE_LEFT_BUTTON)
-		return (1);
-	return (0);
-}
-
-int		release()
-{
-	return (1);
-}
-
-int		move()
-{
-	return (1);
 }
 
 void	get_ctrl(t_fract *fract)

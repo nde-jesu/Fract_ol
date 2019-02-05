@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/29 09:08:13 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/05 15:02:17 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ typedef struct	s_mlx
 	t_img	*img;
 }				t_mlx;
 
+typedef struct	s_mouse
+{
+	int		pressed;
+	int		act_x;
+	int		act_y;
+	int		prev_x;
+	int		prev_y;
+}				t_mouse;
+
 typedef struct	s_fract
 {
 	t_pt	min;
@@ -50,6 +59,7 @@ typedef struct	s_fract
 	t_mlx	*mlx;
 	int		type;
 	float	zoom;
+	t_mouse	mouse;
 }				t_fract;
 
 void		put_pixel_img(t_fract *fract, int x, int y, int color);
@@ -61,5 +71,8 @@ void		print_menu(t_fract *fract);
 void		get_ctrl(t_fract *fract);
 t_fract		*new_img(t_fract *fract);
 void		zoom(int key, t_fract *fract);
+int			press(int click, int x, int y, void *param);
+int			release();
+int			move(int x, int y, void *param);
 
 #endif
