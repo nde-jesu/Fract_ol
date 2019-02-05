@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:27:13 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 18:41:22 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:51:57 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int		error(void)
 {
 	ft_putendl_fd("usage: ./fractol <fractal you want>\n", 2);
-	ft_putendl_fd("Availables fractals:\n-Mandelbrot\n-Julia\n-Another", 2);
+	ft_putendl_fd("Availables fractals:\n-Mandelbrot\n-Julia\n-Koch", 2);
 	exit(1);
 	return (1);
 }
@@ -35,6 +35,8 @@ int		main(int ac, char **av)
 		mandel(fract);
 	else if (fract->type == 2)
 		julia(fract);
+	else if (fract->type == 3)
+		koch(fract);
 	print_menu(fract);
 	get_ctrl(fract);
 	mlx_loop(fract->mlx->ptr);

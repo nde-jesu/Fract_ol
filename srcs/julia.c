@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/04 14:28:08 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:23:19 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void			julia(t_fract *fract)
 					i < fract->i_max)
 				i = norme(fract, i);
 			if (i == fract->i_max)
-				put_pixel_img(fract, ct.x + MENU_WIDTH, ct.y, 0xFF00000);
+				put_pixel_img(fract->mlx->img, ct.x + MENU_WIDTH, \
+						ct.y, 0xFF00000);
 			++ct.y;
 		}
 	}

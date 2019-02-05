@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/05 15:02:17 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:25:43 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ typedef struct	s_pt
 	float	x;
 	float	y;
 }				t_pt;
+
+typedef struct	s_line
+{
+	int		delta_x;
+	int		delta_y;
+	int		sign_x;
+	int		sign_y;
+	int		r_offset;
+	int		c_offset;
+}				t_line;
 
 typedef struct	s_img
 {
@@ -62,10 +72,11 @@ typedef struct	s_fract
 	t_mouse	mouse;
 }				t_fract;
 
-void		put_pixel_img(t_fract *fract, int x, int y, int color);
+void		put_pixel_img(t_img *img, int x, int y, int color);
 t_fract		*init_fract(const char *s);
 void		mandel(t_fract *fract);
 void		julia(t_fract *fract);
+void		koch(t_fract *fract);
 t_pt		init_pt(float x, float y);
 void		print_menu(t_fract *fract);
 void		get_ctrl(t_fract *fract);
@@ -74,5 +85,6 @@ void		zoom(int key, t_fract *fract);
 int			press(int click, int x, int y, void *param);
 int			release();
 int			move(int x, int y, void *param);
+void		img_draw_line(t_pt a, t_pt b, t_img *img);
 
 #endif
