@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/05 16:25:43 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/06 09:23:12 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct	s_fract
 }				t_fract;
 
 void		put_pixel_img(t_img *img, int x, int y, int color);
+void		img_draw_line(t_pt a, t_pt b, t_img *img);
 t_fract		*init_fract(const char *s);
 void		mandel(t_fract *fract);
 void		julia(t_fract *fract);

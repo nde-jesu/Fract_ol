@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:02:23 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/28 14:54:28 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/06 09:15:54 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ char			*ft_itoa_base(int value, int base);
 int				ft_intlen(int n);
 void			ft_swap(int *a, int *b);
 int				ft_abs(int nb);
+int				ft_max(int a, int b);
 
 #endif
