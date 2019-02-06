@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:09:46 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/29 08:25:22 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 10:56:40 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,13 @@ void	print_menu(t_fract *fract)
 	ptr = fract->mlx->ptr;
 	color_menu(win, ptr);
 	mlx_string_put(ptr, win, 10, 20, 0xEAEAEA, "Fract'ol");
-	mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "How to use :");
-	mlx_string_put(ptr, win, 10, 100, 0xEAEAEA, "WIP");
+	if (fract->type == 1)
+		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Mandelbrot");
+	else if (fract->type == 2)
+		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Julia");
+	else
+		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Von Koch");
+	mlx_string_put(ptr, win, 10, 100, 0xEAEAEA, "How to use :");
 	mlx_string_put(ptr, win, 10, 120, 0xEAEAEA, "WIP");
 	mlx_string_put(ptr, win, 10, 140, 0xEAEAEA, "WIP");
 	mlx_string_put(ptr, win, 10, 160, 0xEAEAEA, "WIP");

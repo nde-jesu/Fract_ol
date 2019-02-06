@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:33:45 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 09:22:22 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 10:52:04 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ void	img_draw_line(t_pt a, t_pt b, t_img *img)
 	double		y;
 	double		inc_x;
 	double		inc_y;
-	int			m;
+	double			m;
 
-	x = a.x;
-	y = a.y;
-	inc_x = b.x - a.x;
-	inc_y = b.y - a.y;
-	m = ft_max(ft_abs(inc_x), ft_abs(inc_y));
+	x = (double)a.x;
+	y = (double)a.y;
+	inc_x = (double)(b.x - a.x);
+	inc_y = (double)(b.y - a.y);
+	m = (double)ft_max(ft_abs((int)inc_x), ft_abs((int)inc_y));
 	inc_x /= m;
 	inc_y /= m;
 
 	while (m >= 0)
 	{
-		put_pixel_img(img, x, y, 0xEAEAEA);
+		put_pixel_img(img, (int)x, (int)y, 0xEAEAEA);
 		x += inc_x;
 		y += inc_y;
 		--m;
