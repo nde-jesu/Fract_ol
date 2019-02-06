@@ -1,8 +1,8 @@
 affichage propre
-nouvelle(s) fractale(s)
 couleurs
 
 zoom (avec souris)
+nouvelle(s) fractale(s)
 lag
 hud (clickable)
 translation

@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/05 16:22:59 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/06 15:20:43 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ void		mandel(t_fract *fract)
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
 			fract->mlx->img->ptr, MENU_WIDTH, 0);
+	if (fract->toggle == 1)
+		print_menu(fract);
 }

@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 10:43:25 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/06 18:56:00 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,11 @@ t_pt		init_pt(float x, float y)
 
 void		init_fract2(t_fract *fract)
 {
-	if (fract->type == 2)
-	{
-		fract->min = init_pt(-1, -1.2);
-		fract->max = init_pt(1, 1.2);
-	}
-	else
-	{
-		fract->min = init_pt(-2.1, -1.2);
-		fract->max = init_pt(0.6, 1.2);
-	}
-	fract->i_max = 150;
-	fract->zoom = 500;
+	fract->toggle = 1;
+	fract->min = init_pt(0, 0);
+	fract->max = init_pt(0, 0);
+	fract->i_max = 1;
+	fract->zoom = 200;
 	fract->delta = init_pt(0, 0);
 	fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
 			&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),

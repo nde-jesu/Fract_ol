@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:27:13 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 09:19:12 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 15:20:37 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		main(int ac, char **av)
 		julia(fract);
 	else if (fract->type == 3)
 		koch(fract);
-	print_menu(fract);
 	get_ctrl(fract);
 	mlx_loop(fract->mlx->ptr);
 	return (0);

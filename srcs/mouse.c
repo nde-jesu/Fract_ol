@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 14:51:13 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/05 15:22:56 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/06 19:00:51 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int		press(int click, int x, int y, void *param)
 	(void)y;
 	fract = (t_fract*)param;
 	if (click == MOUSE_SCROLL_UP || click == MOUSE_SCROLL_DOWN)
+	{
 		zoom(click, param);
+	}
 	else if (click == MOUSE_LEFT_BUTTON)
 		return (1);
 	return (0);
@@ -42,9 +44,14 @@ int		move(int x, int y, void *param)
 	if (fract->type == 2)
 	{
 		fract = new_img(fract);
-		fract->i_max = x / 10;
-		if (fract->i_max < 1)
-			fract->i_max = 1;
+		fract->mouse.prev_x = fract->mouse.act_x;
+		fract->mouse.act_x = x;
+		if (fract->mouse.act_x < fract->mouse.prev_x)
+			fract->i_max -= x / 100;
+		else
+			fract->i_max += x / 100;
+		if (fract->i_max < -250)
+			fract->i_max = -250;
 		else if (fract->i_max > 250)
 			fract->i_max = 250;
 		julia(fract);

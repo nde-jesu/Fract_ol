@@ -6,30 +6,12 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:09:46 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 10:56:40 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 15:07:37 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "fractol.h"
-
-void	color_menu(void *win, void *ptr)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < MENU_WIDTH)
-		{
-			mlx_pixel_put(ptr, win, x, y, 0x1E1E1E);
-			++x;
-		}
-		++y;
-	}
-}
 
 void	print_menu(t_fract *fract)
 {
@@ -38,7 +20,6 @@ void	print_menu(t_fract *fract)
 
 	win = fract->mlx->win;
 	ptr = fract->mlx->ptr;
-	color_menu(win, ptr);
 	mlx_string_put(ptr, win, 10, 20, 0xEAEAEA, "Fract'ol");
 	if (fract->type == 1)
 		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Mandelbrot");

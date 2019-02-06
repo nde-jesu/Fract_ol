@@ -6,13 +6,14 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 08:58:43 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/16 09:47:42 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 15:11:41 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_MACRO_KEYS_H
 # define MLX_MACRO_KEYS_H
 
+# define KEY_SPACEBAR 49
 # define KEY_ESCAPE 53
 # define KEY_MINUS 27
 # define KEY_EQUAL 24

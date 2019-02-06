@@ -6,16 +6,16 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 09:23:12 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 17:23:04 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define HEIGHT 1250
-# define WIDTH 2500
-# define MENU_WIDTH 250
+# define HEIGHT 500
+# define WIDTH 750
+# define MENU_WIDTH 0
 
 typedef struct	s_pt
 {
@@ -70,6 +70,7 @@ typedef struct	s_fract
 	int		type;
 	float	zoom;
 	t_mouse	mouse;
+	int		toggle;
 }				t_fract;
 
 void		put_pixel_img(t_img *img, int x, int y, int color);
@@ -87,5 +88,7 @@ int			press(int click, int x, int y, void *param);
 int			release();
 int			move(int x, int y, void *param);
 void		img_draw_line(t_pt a, t_pt b, t_img *img);
+void		space(t_fract *fract);
+void		translation(int key, t_fract *fract);
 
 #endif
