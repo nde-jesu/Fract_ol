@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 10:53:14 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 11:05:40 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	zoom(int key, t_fract *fract)
 	}
 	if (fract->type == 1)
 	{
-		fract->min.x = (-2.1 / fract->zoom) + fract->delta.x;
-		fract->min.y = (-1.2 / fract->zoom) + fract->delta.y;
-		fract->max.x = (0.6 / fract->zoom) + fract->delta.x;
-		fract->max.y = (1.2 / fract->zoom) + fract->delta.y;
+		fract->min.x += fract->delta.x;
+		fract->min.y += fract->delta.y;
+		fract->max.x += fract->delta.x;
+		fract->max.y += fract->delta.y;
 		mandel(fract);
 	}
 	else if (fract->type == 2)
