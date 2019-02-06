@@ -6,7 +6,7 @@
 #    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 15:08:50 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/01/28 14:51:55 by reda-con         ###   ########.fr        #
+#    Updated: 2019/02/06 09:57:25 by nde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ SRC = ft_isalpha \
 	  get_next_line \
 	  ft_swap \
 	  ft_abs \
-	  ft_strlowcase
+	  ft_strlowcase \
+	  ft_max
 
 OBJDIR = obj/
 CLEANOBJDIR = OBJDIR
