@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:40:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/06 09:38:01 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/06 10:15:26 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ void	fractale(t_pt a, t_pt b, t_fract *fract, int level)
 		fractale(pt2, b, fract, level - 1);
 	}
 	else
-	{
 		img_draw_line(a, b, fract->mlx->img);
-	}
 }
 
 void	koch(t_fract *fract)
