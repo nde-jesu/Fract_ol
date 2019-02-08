@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/08 13:48:40 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:40:26 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static int		norme2(t_fract *fract, int i)
 	float	tmp;
 
 	tmp = fract->z.x;
-	fract->z.x = fract->z.x * fract->z.x - fract->z.y * fract->z.y + fract->c.x;
-	fract->z.y = 2 * fract->z.y * tmp + fract->c.y;
+	fract->z.x = fract->z.x * fract->z.x - fract->z.y * fract->z.y - fract->c.x;
+	fract->z.y = 2 * fract->z.y * tmp - fract->c.y;
 	--i;
 	return (i);
 }
