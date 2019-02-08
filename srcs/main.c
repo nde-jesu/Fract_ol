@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:27:13 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 15:20:37 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:50:15 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		main(int ac, char **av)
 {
 	t_fract		*fract;
 
-	
 	if (ac != 2)
 		return (error());
 	if (!(fract = init_fract(ft_strlowcase(av[1]))))

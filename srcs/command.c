@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 16:51:52 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:40:01 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <mlx.h>
 #include "mlx_macro_keys.h"
 
-#include <stdio.h>
 void	reload(t_fract *fract)
 {
 	if (fract->type == 1)

@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 14:51:13 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/06 19:00:51 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:51:15 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		press(int click, int x, int y, void *param)
 	return (0);
 }
 
-int		release()
+int		release(void)
 {
 	return (1);
 }
@@ -47,13 +47,11 @@ int		move(int x, int y, void *param)
 		fract->mouse.prev_x = fract->mouse.act_x;
 		fract->mouse.act_x = x;
 		if (fract->mouse.act_x < fract->mouse.prev_x)
-			fract->i_max -= x / 100;
+			fract->i_max = x / 10;
 		else
-			fract->i_max += x / 100;
-		if (fract->i_max < -250)
-			fract->i_max = -250;
-		else if (fract->i_max > 250)
-			fract->i_max = 250;
+			fract->i_max = x / 10;
+		if (fract->i_max == 0)
+			fract->i_max = 1;
 		julia(fract);
 	}
 	return (0);

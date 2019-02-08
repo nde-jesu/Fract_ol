@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 17:23:04 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:32:51 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # define HEIGHT 500
 # define WIDTH 750
 # define MENU_WIDTH 0
+# define X_M -2.5
+# define X_L 1.0
+# define Y_M -1.5
+# define Y_L 0.6
 
 typedef struct	s_pt
 {

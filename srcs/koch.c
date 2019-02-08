@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:40:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/06 15:23:25 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:50:46 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	fractale(t_pt a, t_pt b, t_fract *fract, int level)
 void	koch(t_fract *fract)
 {
 	fractale(init_pt(320, 60), init_pt(520, 340), fract, 10);
-	fractale(init_pt(520, 340), init_pt(120 , 340), fract, 10);
+	fractale(init_pt(520, 340), init_pt(120, 340), fract, 10);
 	fractale(init_pt(120, 340), init_pt(320, 60), fract, 10);
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
 			fract->mlx->img->ptr, MENU_WIDTH, 0);

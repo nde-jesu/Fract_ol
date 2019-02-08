@@ -6,16 +6,23 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/06 18:22:05 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:48:40 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <mlx.h>
-#define X_M -1.5
-#define X_L  1.
-#define Y_M -1.5
-#define Y_L  0.6
+
+static int		norme2(t_fract *fract, int i)
+{
+	float	tmp;
+
+	tmp = fract->z.x;
+	fract->z.x = fract->z.x * fract->z.x - fract->z.y * fract->z.y + fract->c.x;
+	fract->z.y = 2 * fract->z.y * tmp + fract->c.y;
+	--i;
+	return (i);
+}
 
 static int		norme(t_fract *fract, int i)
 {
@@ -28,15 +35,26 @@ static int		norme(t_fract *fract, int i)
 	return (i);
 }
 
-void			julia(t_fract *fract)
+static int		norme3(t_fract *fract)
 {
 	int		i;
+
+	i = 0;
+	if (fract->i_max > 0)
+		while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 &&\
+				i < fract->i_max)
+			i = norme(fract, i);
+	else
+		while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 &&\
+				i > fract->i_max)
+			i = norme2(fract, i);
+	return (i);
+}
+
+void			julia(t_fract *fract)
+{
 	t_pt	ct;
 
-	fract->min = init_pt(X_M+(X_L/2)-(X_L/(2 * fract->zoom)+fract->delta.x), \
-			Y_M+(Y_L/2)-(Y_L/(2*fract->zoom)+fract->delta.y));
-	fract->max = init_pt(fract->min.x+(X_L/fract->zoom), \
-			fract->min.y+(Y_L/fract->zoom));
 	ct.x = -1;
 	while (++ct.x < WIDTH)
 	{
@@ -45,12 +63,8 @@ void			julia(t_fract *fract)
 		{
 			fract->c = init_pt(0.285, 0.01);
 			fract->z = init_pt(ct.x / fract->zoom + fract->min.x, \
-				ct.y / fract->zoom + fract->min.y);
-			i = 0;
-			while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 && \
-					i < fract->i_max)
-				i = norme(fract, i);
-			if (i == fract->i_max)
+					ct.y / fract->zoom + fract->min.y);
+			if (norme3(fract) == fract->i_max)
 				put_pixel_img(fract->mlx->img, ct.x, ct.y, 0xEAEAEA);
 		}
 	}
