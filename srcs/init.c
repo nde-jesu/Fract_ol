@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 13:27:00 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:45:48 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "fractol.h"
 #include "../libft/includes/libft.h"
 
-t_pt		init_pt(float x, float y)
+t_pt			init_pt(float x, float y)
 {
 	t_pt	ret;
 
@@ -24,29 +24,20 @@ t_pt		init_pt(float x, float y)
 	return (ret);
 }
 
-void		reload(t_fract *fract)
+static void		norme(t_fract *fract)
 {
-	if (fract->type == 1)
-		mandel(fract);
-	if (fract->type == 2)
-		julia(fract);
-	if (fract->type == 3)
-		koch(fract);
-	if (fract->type == 4)
-		barnsley(fract);
+	fract->mouse.toggle_mouse = -1;
+	fract->toggle_menu = 1;
+	fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
+			&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
+			&(fract->mlx->img->endian));
 }
 
-void		init_params(t_fract *fract, int cases)
+void			init_params(t_fract *fract, int cases)
 {
 	fract->delta = init_pt(0, 0);
 	if (cases == 0)
-	{
-		fract->mouse.toggle_mouse = -1;
-		fract->toggle_menu = 1;
-		fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
-				&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
-				&(fract->mlx->img->endian));
-	}
+		norme(fract);
 	if (fract->type == 1 || fract->type == 2)
 	{
 		if (fract->type == 1)
@@ -69,16 +60,8 @@ void		init_params(t_fract *fract, int cases)
 	}
 }
 
-t_fract		*init_fract(const char *s)
+int				check_type(t_fract *fract, char const *s)
 {
-	t_fract		*fract;
-
-	if (!(fract = (t_fract*)malloc(sizeof(t_fract))))
-		return (NULL);
-	if (!(fract->mlx = (t_mlx*)malloc(sizeof(t_mlx))))
-		return (NULL);
-	if (!(fract->mlx->img = (t_img*)malloc(sizeof(t_img))))
-		return (NULL);
 	fract->type = 0;
 	if (!(ft_strcmp(s, "mandelbrot")))
 		fract->type = 1;
@@ -89,8 +72,23 @@ t_fract		*init_fract(const char *s)
 	else if (!(ft_strcmp(s, "barnsley")))
 		fract->type = 4;
 	else
+		return (1);
+	return (0);
+}
+
+t_fract			*init_fract(const char *s)
+{
+	t_fract		*fract;
+
+	if (!(fract = (t_fract*)malloc(sizeof(t_fract))))
+		return (NULL);
+	if (!(fract->mlx = (t_mlx*)malloc(sizeof(t_mlx))))
+		return (NULL);
+	if (!(fract->mlx->img = (t_img*)malloc(sizeof(t_img))))
 		return (NULL);
 	fract->mlx->ptr = mlx_init();
+	if (check_type(fract, s))
+		return (NULL);
 	if (!(fract->mlx->win = mlx_new_window(fract->mlx->ptr, WIDTH,
 					HEIGHT, "Fract_ol")))
 		return (NULL);

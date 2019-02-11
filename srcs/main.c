@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:27:13 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 13:19:55 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:39:00 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		main(int ac, char **av)
 		koch(fract);
 	else
 		barnsley(fract);
-get_ctrl(fract);
-mlx_loop(fract->mlx->ptr);
-return (0);
+	get_ctrl(fract);
+	mlx_loop(fract->mlx->ptr);
+	return (0);
 }
