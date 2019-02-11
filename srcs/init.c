@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 09:56:46 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:03:08 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,8 @@ void		init_params(t_fract *fract, int cases)
 			fract->min.y + (Y_L / fract->zoom));
 }
 
-t_fract		*init_fract(const char *s)
+int			check_type(t_fract *fract, char const *s)
 {
-	t_fract		*fract;
-
-	if (!(fract = (t_fract*)malloc(sizeof(t_fract))))
-		return (NULL);
-	if (!(fract->mlx = (t_mlx*)malloc(sizeof(t_mlx))))
-		return (NULL);
-	if (!(fract->mlx->img = (t_img*)malloc(sizeof(t_img))))
-		return (NULL);
 	fract->type = 0;
 	if (!(ft_strcmp(s, "mandelbrot")))
 		fract->type = 1;
@@ -76,8 +68,23 @@ t_fract		*init_fract(const char *s)
 	else if (!(ft_strcmp(s, "barnsley")))
 		fract->type = 4;
 	else
+		return (1);
+	return (0);
+}
+
+t_fract		*init_fract(char const *s)
+{
+	t_fract		*fract;
+
+	if (!(fract = (t_fract*)malloc(sizeof(t_fract))))
+		return (NULL);
+	if (!(fract->mlx = (t_mlx*)malloc(sizeof(t_mlx))))
+		return (NULL);
+	if (!(fract->mlx->img = (t_img*)malloc(sizeof(t_img))))
 		return (NULL);
 	fract->mlx->ptr = mlx_init();
+	if (check_type(fract, s))
+		return (NULL);
 	if (!(fract->mlx->win = mlx_new_window(fract->mlx->ptr, WIDTH,
 					HEIGHT, "Fract_ol")))
 		return (NULL);

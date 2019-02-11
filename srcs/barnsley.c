@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 09:31:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 10:20:41 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:28:19 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_pt	norme(int r, t_pt pt)
 	return (pt);
 }
 
-void	barnsley(t_fract *fract)
+void		barnsley(t_fract *fract)
 {
 	int		k;
 	int		r;
@@ -50,12 +50,10 @@ void	barnsley(t_fract *fract)
 	k = 0;
 	while (++k < fract->i_max)
 	{
-		r = rand()%100;
+		r = rand() % 100;
 		pt = norme(r, pt);
-		pt.x = pt.x * fract->zoom - fract->min.x;
-		pt.y = pt.y * fract->zoom - fract->min.y;
-		put_pixel_img(fract->mlx->img, 3 * (235 - pt.y), 3 * (pt.x - 5)
-				+ 10, 0xEAEAEA);
+		put_pixel_img(fract->mlx->img, (3 * (235 - pt.y)) * fract->zoom - fract->min.x, (3 * (pt.x - 5)
+				+ 10) * fract->zoom + fract->min.y, 0xEAEAEA);
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win,
 			fract->mlx->img->ptr, 0, 0);

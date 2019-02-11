@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 14:51:13 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/11 10:38:43 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:18:36 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		move(int x, int y, void *param)
 	fract->mouse.prev_x = fract->mouse.act_x;
 	fract->mouse.act_x = x;
 	fract->mouse.act_y = y;
-	if ((fract->type == 2 || fract->type == 4) && fract->mouse.toggle_mouse == 1)
+	if (fract->type == 2 && fract->mouse.toggle_mouse == 1)
 	{
 		fract = new_img(fract);
 		if (fract->mouse.act_x < fract->mouse.prev_x)
