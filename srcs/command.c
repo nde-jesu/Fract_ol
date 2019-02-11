@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 14:43:18 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:07:45 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ void	zoom(int key, t_fract *fract)
 					- (fract->mouse.act_x / (fract->zoom / 1.3));
 		fract->min.y = (fract->mouse.act_y / fract->zoom + fract->min.y)\
 					- (fract->mouse.act_y / (fract->zoom / 1.3));
-		if (fract->zoom > 1)
-			fract->zoom /= 1.1;
+		fract->zoom /= 1.1;
 	}
 	reload(fract);
 }

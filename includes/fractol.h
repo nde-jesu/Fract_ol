@@ -6,14 +6,14 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 14:46:21 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:00:06 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define HEIGHT 500
+# define HEIGHT 600
 # define WIDTH 750
 # define X_M -2.5
 # define X_L 1.0
