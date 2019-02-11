@@ -1,6 +1,6 @@
 couleurs
+julia good
 
 nouvelle(s) fractale(s)
-lag
 rotation z
 + de couleurs

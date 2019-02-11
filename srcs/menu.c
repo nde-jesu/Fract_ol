@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:09:46 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 14:38:48 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:54:19 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_menu(t_fract *fract)
 		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Barnsley");
 	mlx_string_put(ptr, win, 10, 100, 0xEAEAEA, "How to use :");
 	mlx_string_put(ptr, win, 10, 120, 0xEAEAEA, "< or > : change fractal");
-	if (fract->type == 2 || fract->type == 4)
+	if (fract->type == 2)
 		mlx_string_put(ptr, win, 10, 140, 0xEAEAEA, "M : activate iterations");
 	mlx_string_put(ptr, win, 10, 160, 0xEAEAEA, "ESC : quit");
 	mlx_string_put(ptr, win, 620, 440, 0xEAEAEA, "Created by :");

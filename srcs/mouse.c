@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 14:51:13 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/11 14:43:43 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:53:56 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int		move(int x, int y, void *param)
 	fract->mouse.prev_x = fract->mouse.act_x;
 	fract->mouse.act_x = x;
 	fract->mouse.act_y = y;
-	if ((fract->type == 2 || fract->type == 4)\
-			&& fract->mouse.toggle_mouse == 1)
+	if (fract->type == 2 && fract->mouse.toggle_mouse == 1)
 	{
 		fract = new_img(fract);
 		if (fract->mouse.act_x < fract->mouse.prev_x)
@@ -43,10 +42,7 @@ int		move(int x, int y, void *param)
 			fract->i_max = x / 10;
 		if (fract->i_max == 0)
 			fract->i_max = 1;
-		if (fract->type == 2)
-			julia(fract);
-		else
-			barnsley(fract);
+		julia(fract);
 	}
 	return (0);
 }
