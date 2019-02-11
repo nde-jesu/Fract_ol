@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/08 13:32:51 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:49:58 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define HEIGHT 500
 # define WIDTH 750
-# define MENU_WIDTH 0
 # define X_M -2.5
 # define X_L 1.0
 # define Y_M -1.5
@@ -55,6 +54,7 @@ typedef struct	s_mlx
 
 typedef struct	s_mouse
 {
+	int		toggle_mouse;
 	int		pressed;
 	int		act_x;
 	int		act_y;
@@ -74,25 +74,29 @@ typedef struct	s_fract
 	int		type;
 	float	zoom;
 	t_mouse	mouse;
-	int		toggle;
+	int		toggle_menu;
 }				t_fract;
 
 void		put_pixel_img(t_img *img, int x, int y, int color);
 void		img_draw_line(t_pt a, t_pt b, t_img *img);
 t_fract		*init_fract(const char *s);
+void		init_params(t_fract *fract, int cases);
 void		mandel(t_fract *fract);
 void		julia(t_fract *fract);
 void		koch(t_fract *fract);
+void		barnsley(t_fract *fract);
 t_pt		init_pt(float x, float y);
 void		print_menu(t_fract *fract);
+void		reload(t_fract *fract);
 void		get_ctrl(t_fract *fract);
 t_fract		*new_img(t_fract *fract);
 void		zoom(int key, t_fract *fract);
 int			press(int click, int x, int y, void *param);
-int			release();
+int			release(void);
 int			move(int x, int y, void *param);
 void		img_draw_line(t_pt a, t_pt b, t_img *img);
 void		space(t_fract *fract);
 void		translation(int key, t_fract *fract);
+void		change_fract(int key, t_fract *fract);
 
 #endif

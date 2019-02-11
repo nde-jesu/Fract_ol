@@ -6,14 +6,14 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/08 13:53:30 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:56:46 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <mlx.h>
 #include "fractol.h"
-#include "libft.h"
+#include "../libft/includes/libft.h"
 
 t_pt		init_pt(float x, float y)
 {
@@ -24,15 +24,31 @@ t_pt		init_pt(float x, float y)
 	return (ret);
 }
 
-void		init_fract2(t_fract *fract)
+void		reload(t_fract *fract)
 {
-	fract->toggle = 1;
+	if (fract->type == 1)
+		mandel(fract);
+	if (fract->type == 2)
+		julia(fract);
+	if (fract->type == 3)
+		koch(fract);
+	if (fract->type == 4)
+		barnsley(fract);
+}
+
+void		init_params(t_fract *fract, int cases)
+{
 	fract->i_max = 250;
 	fract->zoom = 200;
 	fract->delta = init_pt(0, 0);
-	fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
-			&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
-			&(fract->mlx->img->endian));
+	if (cases == 0)
+	{
+		fract->mouse.toggle_mouse = -1;
+		fract->toggle_menu = 1;
+		fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
+				&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
+				&(fract->mlx->img->endian));
+	}
 	fract->min = init_pt(X_M + (X_L / 2) - (X_L / (2 * fract->zoom))\
 			+ fract->delta.x, Y_M + (Y_L / 2) - (Y_L / (2 * fract->zoom))\
 			+ fract->delta.y);
@@ -57,6 +73,8 @@ t_fract		*init_fract(const char *s)
 		fract->type = 2;
 	else if (!(ft_strcmp(s, "koch")))
 		fract->type = 3;
+	else if (!(ft_strcmp(s, "barnsley")))
+		fract->type = 4;
 	else
 		return (NULL);
 	fract->mlx->ptr = mlx_init();
@@ -65,6 +83,6 @@ t_fract		*init_fract(const char *s)
 		return (NULL);
 	if (!(fract->mlx->img->ptr = mlx_new_image(fract->mlx->ptr, WIDTH, HEIGHT)))
 		return (NULL);
-	init_fract2(fract);
+	init_params(fract, 0);
 	return (fract);
 }

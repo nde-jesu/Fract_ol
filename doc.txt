@@ -1,10 +1,6 @@
-affichage propre
 couleurs
 
-zoom (avec souris)
 nouvelle(s) fractale(s)
 lag
-hud (clickable)
-translation
 rotation z
 + de couleurs

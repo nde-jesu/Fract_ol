@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 08:58:43 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/06 15:11:41 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 08:55:57 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@
 # define MOUSE_SCROLL_RIGHT 7
 # define KEY_PAGE_UP 116
 # define KEY_PAGE_DOWN 121
-
+# define KEY_LESS_THAN 43
+# define KEY_MORE_THAN 47
+# define KEY_M 46
 #endif

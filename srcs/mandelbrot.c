@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/08 13:39:42 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 10:31:51 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void		mandel(t_fract *fract)
 	int		i;
 
 	ct.x = -1;
-	while (++ct.x < HEIGHT)
+	while (++ct.x < WIDTH)
 	{
 		ct.y = -1;
-		while (++ct.y < WIDTH)
+		while (++ct.y < HEIGHT)
 		{
 			fract->c = init_pt(ct.x / fract->zoom + fract->min.x, \
 					ct.y / fract->zoom + fract->min.y);
@@ -43,12 +43,12 @@ void		mandel(t_fract *fract)
 					&& i < fract->i_max)
 				i = norme(fract, i);
 			if (i == fract->i_max)
-				put_pixel_img(fract->mlx->img, ct.x + MENU_WIDTH, \
+				put_pixel_img(fract->mlx->img, ct.x, \
 						ct.y, 0xEAEAEA);
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
-			fract->mlx->img->ptr, MENU_WIDTH, 0);
-	if (fract->toggle == 1)
+			fract->mlx->img->ptr, 0, 0);
+	if (fract->toggle_menu == 1)
 		print_menu(fract);
 }

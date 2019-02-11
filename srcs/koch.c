@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:40:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/08 13:50:46 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:50:13 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void	fractale(t_pt a, t_pt b, t_fract *fract, int level)
 		fractale(pt2, b, fract, level - 1);
 	}
 	else
+	{
+		a.x = a.x * fract->zoom - fract->min.x;
+		a.y = a.y * fract->zoom - fract->min.y;
+		b.x = b.x * fract->zoom - fract->min.x;
+		b.y = b.y * fract->zoom - fract->min.y;
 		img_draw_line(a, b, fract->mlx->img);
+	}
 }
 
 void	koch(t_fract *fract)
@@ -44,7 +50,7 @@ void	koch(t_fract *fract)
 	fractale(init_pt(520, 340), init_pt(120, 340), fract, 10);
 	fractale(init_pt(120, 340), init_pt(320, 60), fract, 10);
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
-			fract->mlx->img->ptr, MENU_WIDTH, 0);
-	if (fract->toggle == 1)
+			fract->mlx->img->ptr, 0, 0);
+	if (fract->toggle_menu == 1)
 		print_menu(fract);
 }

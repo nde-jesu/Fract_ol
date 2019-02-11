@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/08 17:40:26 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/11 08:57:08 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void			julia(t_fract *fract)
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
 			fract->mlx->img->ptr, 0, 0);
-	if (fract->toggle == 1)
+	if (fract->toggle_menu == 1)
 		print_menu(fract);
 }
