@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 09:56:46 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:27:00 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void		reload(t_fract *fract)
 
 void		init_params(t_fract *fract, int cases)
 {
-	fract->i_max = 250;
-	fract->zoom = 200;
 	fract->delta = init_pt(0, 0);
 	if (cases == 0)
 	{
@@ -49,11 +47,26 @@ void		init_params(t_fract *fract, int cases)
 				&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),
 				&(fract->mlx->img->endian));
 	}
-	fract->min = init_pt(X_M + (X_L / 2) - (X_L / (2 * fract->zoom))\
-			+ fract->delta.x, Y_M + (Y_L / 2) - (Y_L / (2 * fract->zoom))\
-			+ fract->delta.y);
-	fract->max = init_pt(fract->min.x + (X_L / fract->zoom), \
-			fract->min.y + (Y_L / fract->zoom));
+	if (fract->type == 1 || fract->type == 2)
+	{
+		if (fract->type == 1)
+			fract->i_max = 250;
+		else
+			fract->i_max = 100;
+		fract->zoom = 200;
+		fract->min = init_pt(X_M + (X_L / 2) - (X_L / (2 * fract->zoom))\
+				+ fract->delta.x, Y_M + (Y_L / 2) - (Y_L / (2 * fract->zoom))\
+				+ fract->delta.y);
+		fract->max = init_pt(fract->min.x + (X_L / fract->zoom), \
+				fract->min.y + (Y_L / fract->zoom));
+	}
+	else
+	{
+		fract->i_max = 100000;
+		fract->zoom = 1;
+		fract->min = init_pt(0, 0);
+		fract->max = init_pt(0, 0);
+	}
 }
 
 t_fract		*init_fract(const char *s)

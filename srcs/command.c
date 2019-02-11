@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 09:57:13 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:22:45 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 void	change_fract(int key, t_fract *fract)
 {
 	fract = new_img(fract);
-	init_params(fract, 1);
 	if (key == KEY_LESS_THAN)
 	{
 		--fract->type;
@@ -30,12 +29,7 @@ void	change_fract(int key, t_fract *fract)
 		if (fract->type == 5)
 			fract->type = 1;
 	}
-	if (fract->type == 3)
-	{
-		fract->zoom = 1;
-		fract->min = init_pt(0, 0);
-		fract->max = init_pt(0, 0);
-	}
+	init_params(fract, 1);
 	reload(fract);
 }
 
