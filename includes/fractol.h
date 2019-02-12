@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 13:55:34 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 15:10:01 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ void			translation(int key, t_fract *fract);
 void			change_fract(int key, t_fract *fract);
 void			change_type_julia(int key, t_fract *fract);
 void			reload(t_fract *fract);
+int				get_clr(int min, int max, int act);
+float			square(float n);
 
 #endif
