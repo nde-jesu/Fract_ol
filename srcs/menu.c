@@ -6,7 +6,11 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:09:46 by nde-jesu          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/02/12 15:47:07 by nde-jesu         ###   ########.fr       */
+=======
+/*   Updated: 2019/02/12 17:13:12 by reda-con         ###   ########.fr       */
+>>>>>>> remi
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +31,10 @@ void	print_menu(t_fract *fract)
 	{
 		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Julia");
 		mlx_string_put(ptr, win, 10, 140, 0xEAEAEA, "M : activate iterations");
-		mlx_string_put(ptr, win, 10, 160, 0xEAEAEA, 
+		mlx_string_put(ptr, win, 10, 160, 0xEAEAEA,\
 				"Pge Up / Down : change type");
 	}
-		else if (fract->type == 3)
+	else if (fract->type == 3)
 		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Von Koch");
 	else
 		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Barnsley");

@@ -6,7 +6,11 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/02/12 15:46:13 by nde-jesu         ###   ########.fr       */
+=======
+/*   Updated: 2019/02/12 17:12:48 by reda-con         ###   ########.fr       */
+>>>>>>> remi
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +90,8 @@ void			julia(t_fract *fract)
 			fract->z = init_pt(ct->x / fract->zoom + fract->min.x,\
 					ct->y / fract->zoom + fract->min.y);
 			i = norme3(fract);
-			ct->clr = get_clr(0, fract->i_max, i);
-//			if (i == fract->i_max)
-				put_pixel_img(fract->mlx->img, ct->x, ct->y, ct->clr);
-//			else
-//				put_pixel_img(fract->mlx->img, ct->x, ct->y, 0xED00FE);
+			ct->clr = get_clr(0, fract->i_max, i, fract);
+			put_pixel_img(fract->mlx->img, ct->x, ct->y, ct->clr);
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \
