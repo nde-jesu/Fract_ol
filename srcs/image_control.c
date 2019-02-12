@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:33:45 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/08 13:52:35 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:01:32 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_pixel_img(t_img *img, int x, int y, int color)
 	}
 }
 
-void	img_draw_line(t_pt a, t_pt b, t_img *img)
+void	img_draw_line(t_pt a, t_pt b, t_img *img, int color)
 {
 	double		x;
 	double		y;
@@ -43,7 +43,7 @@ void	img_draw_line(t_pt a, t_pt b, t_img *img)
 	inc_y /= m;
 	while (m >= 0)
 	{
-		put_pixel_img(img, (int)x, (int)y, 0xEAEAEA);
+		put_pixel_img(img, (int)x, (int)y, color);
 		x += inc_x;
 		y += inc_y;
 		--m;

@@ -6,33 +6,66 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 14:53:47 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 15:25:00 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:09:31 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	percent(int start, int end, int act)
-{
-	double	plc;
-	double	dist;
+#include "fractol.h"
 
-	plc = act - start;
-	dist = end - start;
-	return ((dist == 0) ? 1.0 : (plc / dist));
-}
-
-int		get_clr(int min, int max, int act)
+int			get_clr(int min, int max, int act, t_fract *fract)
 {
 	double	prct;
 
 	prct = percent(min, max, act);
 	if (prct < 0.2)
-		return (0x00ff00);
+		return (fract->paddle[0]);
 	else if (prct < 0.4)
-		return (0xff0000);
+		return (fract->paddle[1]);
 	else if (prct < 0.6)
-		return (0x0000ff);
+		return (fract->paddle[2]);
 	else if (prct < 0.8)
-		return (0xff00ff);
+		return (fract->paddle[3]);
 	else
-		return (0xffff00);
+		return (fract->paddle[4]);
+}
+
+static void	norme(t_fract *fract)
+{
+	if (fract->paddle_choice == 2)
+	{
+		fract->paddle[0] = 0x00ff00;
+		fract->paddle[1] = 0xff0000;
+		fract->paddle[2] = 0x0000ff;
+		fract->paddle[3] = 0xff00ff;
+		fract->paddle[4] = 0xffff00;
+	}
+	else
+	{
+		fract->paddle[0] = 0x00ff00;
+		fract->paddle[1] = 0xff0000;
+		fract->paddle[2] = 0x0000ff;
+		fract->paddle[3] = 0xff00ff;
+		fract->paddle[4] = 0xffff00;
+	}
+}
+
+void		choice_color(t_fract *fract)
+{
+	if (fract->paddle_choice == 0)
+	{
+		fract->paddle[0] = 0x00ff00;
+		fract->paddle[1] = 0xff0000;
+		fract->paddle[2] = 0x0000ff;
+		fract->paddle[3] = 0xff00ff;
+		fract->paddle[4] = 0xffff00;
+	}
+	else if (fract->paddle_choice == 1)
+	{
+		fract->paddle[0] = 0xffff00;
+		fract->paddle[1] = 0xff00ff;
+		fract->paddle[2] = 0x0000ff;
+		fract->paddle[3] = 0xff0000;
+		fract->paddle[4] = 0x00ff00;
+	}
+	norme(fract);
 }

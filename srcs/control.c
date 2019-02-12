@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:53:28 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 13:54:43 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:11:49 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 #include "fractol.h"
 #include <mlx.h>
 
-void	reload(t_fract *fract)
-{
-	if (fract->type == 1)
-		mandel(fract);
-	else if (fract->type == 2)
-		julia(fract);
-	else if (fract->type == 3)
-		koch(fract);
-	else if (fract->type == 4)
-		barnsley(fract);
-}
-
-int		close(void *param)
+int			close(void *param)
 {
 	free(param);
 	exit(0);
 	return (0);
 }
 
-int		user_command(int key, void *param)
+static void	norme(int key, t_fract *fract)
+{
+	if (key == KEY_PAD_1)
+		fract->paddle_choice = 0;
+	else if (key == KEY_PAD_2)
+		fract->paddle_choice = 1;
+	else if (key == KEY_PAD_3)
+		fract->paddle_choice = 2;
+	else if (key == KEY_PAD_4)
+		fract->paddle_choice = 3;
+	choice_color(fract);
+	reload(fract);
+}
+
+int			user_command(int key, void *param)
 {
 	t_fract*fract;
 
@@ -55,10 +57,11 @@ int		user_command(int key, void *param)
 		change_fract(key, fract);
 	else if (key == KEY_PAGE_UP || key == KEY_PAGE_DOWN)
 		change_type_julia(key, fract);
+	norme(key, fract);
 	return (0);
 }
 
-void	get_ctrl(t_fract *fract)
+void		get_ctrl(t_fract *fract)
 {
 	mlx_hook(fract->mlx->win, 2, 0, user_command, fract);
 	mlx_hook(fract->mlx->win, 17, 0, close, fract);
@@ -66,9 +69,9 @@ void	get_ctrl(t_fract *fract)
 	mlx_hook(fract->mlx->win, 6, 0, move, fract);
 }
 
-t_fract	*new_img(t_fract *fract)
+t_fract		*new_img(t_fract *fract)
 {
-	mlx_destroy_image(	fract->mlx->ptr, fract->mlx->img->ptr);
+	mlx_destroy_image(fract->mlx->ptr, fract->mlx->img->ptr);
 	fract->mlx->img->ptr = mlx_new_image(fract->mlx->ptr, WIDTH, HEIGHT);
 	fract->mlx->img->data = mlx_get_data_addr(fract->mlx->img->ptr,
 			&(fract->mlx->img->bpp), &(fract->mlx->img->size_l),

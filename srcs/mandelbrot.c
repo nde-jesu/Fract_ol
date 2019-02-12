@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:38:27 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 10:31:51 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 16:26:56 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ void		mandel(t_fract *fract)
 			while (fract->z.x * fract->z.x + fract->z.y * fract->z.y < 4 \
 					&& i < fract->i_max)
 				i = norme(fract, i);
-			if (i == fract->i_max)
-				put_pixel_img(fract->mlx->img, ct.x, \
-						ct.y, 0xEAEAEA);
+			put_pixel_img(fract->mlx->img, ct.x, ct.y,\
+					get_clr(0, fract->i_max, i, fract));
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \

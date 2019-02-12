@@ -6,11 +6,35 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:08:38 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 15:09:13 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:13:27 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fractol.h"
 
 float	square(float n)
 {
 	return (n * n);
+}
+
+double	percent(int start, int end, int act)
+{
+	double	plc;
+	double	dist;
+
+	plc = act - start;
+	dist = end - start;
+	return ((dist == 0) ? 1.0 : (plc / dist));
+}
+
+void	reload(t_fract *fract)
+{
+	if (fract->type == 1)
+		mandel(fract);
+	else if (fract->type == 2)
+		julia(fract);
+	else if (fract->type == 3)
+		koch(fract);
+	else if (fract->type == 4)
+		barnsley(fract);
 }

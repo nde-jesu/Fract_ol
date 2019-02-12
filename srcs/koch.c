@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:40:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/11 09:50:13 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:12:41 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	fractale(t_pt a, t_pt b, t_fract *fract, int level)
 		a.y = a.y * fract->zoom - fract->min.y;
 		b.x = b.x * fract->zoom - fract->min.x;
 		b.y = b.y * fract->zoom - fract->min.y;
-		img_draw_line(a, b, fract->mlx->img);
+		img_draw_line(a, b, fract->mlx->img, 0xff0000);
 	}
 }
 
