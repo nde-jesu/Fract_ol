@@ -6,13 +6,30 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 13:33:37 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/12 14:01:40 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <mlx.h>
 #include <stdlib.h>
+
+static t_pt		type_julia(t_fract *fract)
+{
+	if (fract->type_julia == 0)
+		return (init_pt(-0.7927, 0.1609));
+	else if (fract->type_julia == 1)
+		return (init_pt(0.32, 0.043));
+	else if (fract->type_julia == 2)
+		return (init_pt(-1.1380, 0.2403));
+	else if (fract->type_julia == 3)
+		return (init_pt(-0.0986, -0.65186));
+	else if (fract->type_julia == 4)
+		return (init_pt(-0.1225, 0.7449));
+	else if (fract->type_julia == 5)
+		return (init_pt(-0.3380, -0.6230));
+	return (init_pt(0, 0));
+}
 
 static void		norme2(t_fract *fract)
 {
@@ -32,7 +49,6 @@ static void		norme(t_fract *fract)
 	fract->z.y = 2 * fract->z.y * tmp + fract->c.y;
 }
 
-#include <stdio.h>
 static int		norme3(t_fract *fract, t_pt *ct)
 {
 	int		i;
@@ -67,7 +83,7 @@ void			julia(t_fract *fract)
 		ct->y = -1;
 		while (++ct->y < HEIGHT)
 		{
-			fract->c = init_pt(-0.772691322542185, 0.124281466072787);
+			fract->c = type_julia(fract);;
 			fract->z = init_pt(ct->x / fract->zoom + fract->min.x,\
 					ct->y / fract->zoom + fract->min.y);
 			if (norme3(fract, ct) == fract->i_max)
