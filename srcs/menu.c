@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:09:46 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 13:39:59 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 15:47:07 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print_menu(t_fract *fract)
 	mlx_string_put(ptr, win, 10, 100, 0xEAEAEA, "How to use :");
 	mlx_string_put(ptr, win, 10, 120, 0xEAEAEA, "< or > : change fractal");
 	mlx_string_put(ptr, win, 10, 180, 0xEAEAEA, "ESC : quit");
-	mlx_string_put(ptr, win, 620, 440, 0xEAEAEA, "Created by :");
-	mlx_string_put(ptr, win, 620, 460, 0xEAEAEA, "Reda-con");
-	mlx_string_put(ptr, win, 620, 480, 0xEAEAEA, "Nde-Jesu");
+	mlx_string_put(ptr, win, 620, 540, 0xEAEAEA, "Created by :");
+	mlx_string_put(ptr, win, 620, 560, 0xEAEAEA, "Reda-con");
+	mlx_string_put(ptr, win, 620, 580, 0xEAEAEA, "Nde-Jesu");
 }

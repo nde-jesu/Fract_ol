@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 11:56:55 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 15:22:57 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/12 15:46:13 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static t_pt		type_julia(t_fract *fract)
 	else if (fract->type_julia == 2)
 		return (init_pt(-1.1380, 0.2403));
 	else if (fract->type_julia == 3)
-		return (init_pt(-0.0986, -0.65186));
+		return (init_pt(-1.310, 0));
 	else if (fract->type_julia == 4)
-		return (init_pt(-0.1225, 0.7449));
+		return (init_pt(0.285, 0.01));
 	else if (fract->type_julia == 5)
 		return (init_pt(-0.3380, -0.6230));
 	return (init_pt(0, 0));
