@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 15:00:06 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:34:07 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct	s_fract
 	int		i_max;
 	t_mlx	*mlx;
 	int		type;
+	int		type_julia;
 	float	zoom;
 	t_mouse	mouse;
 	int		toggle_menu;
@@ -96,5 +97,7 @@ void			img_draw_line(t_pt a, t_pt b, t_img *img);
 void			space(t_fract *fract);
 void			translation(int key, t_fract *fract);
 void			change_fract(int key, t_fract *fract);
+void			change_type_julia(int key, t_fract *fract);
+void			reload(t_fract *fract);
 
 #endif

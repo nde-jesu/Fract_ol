@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 15:07:45 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:34:26 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 #include <mlx.h>
 #include "mlx_macro_keys.h"
 
-void	reload(t_fract *fract)
+void	change_type_julia(int key, t_fract *fract)
 {
-	if (fract->type == 1)
-		mandel(fract);
-	else if (fract->type == 2)
-		julia(fract);
-	else if (fract->type == 3)
-		koch(fract);
-	else if (fract->type == 4)
-		barnsley(fract);
+	fract = new_img(fract);
+	if (key == KEY_PAGE_UP)
+	{
+		++fract->type_julia;
+		if (fract->type_julia == 6)
+			fract->type_julia = 0;
+	}
+	else if (key == KEY_PAGE_DOWN)
+	{
+		--fract->type_julia;
+		if (fract->type_julia == -1)
+			fract->type_julia = 5;
+	}
+	init_params(fract, 1);
+	reload(fract);
 }
 
 void	change_fract(int key, t_fract *fract)

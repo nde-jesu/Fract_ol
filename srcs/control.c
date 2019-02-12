@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 08:12:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/11 10:38:29 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:25:28 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 #include "mlx_macro_keys.h"
 #include "fractol.h"
 #include <mlx.h>
+
+void	reload(t_fract *fract)
+{
+	if (fract->type == 1)
+		mandel(fract);
+	else if (fract->type == 2)
+		julia(fract);
+	else if (fract->type == 3)
+		koch(fract);
+	else if (fract->type == 4)
+		barnsley(fract);
+}
 
 int		close(void *param)
 {
@@ -41,6 +53,8 @@ int		user_command(int key, void *param)
 		translation(key, fract);
 	else if (key == KEY_LESS_THAN || key == KEY_MORE_THAN)
 		change_fract(key, fract);
+	else if (key == KEY_PAGE_UP || key == KEY_PAGE_DOWN)
+		change_type_julia(key, fract);
 	return (0);
 }
 
