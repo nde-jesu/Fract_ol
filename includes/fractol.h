@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 13:34:07 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:45:29 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_pt
 {
 	float	x;
 	float	y;
+	int		clr;
 }				t_pt;
 
 typedef struct	s_line
