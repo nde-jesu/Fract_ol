@@ -5,47 +5,92 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 08:12:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/15 17:01:58 by reda-con         ###   ########.fr       */
+/*   Created: 2019/02/12 13:51:14 by nde-jesu          #+#    #+#             */
+/*   Updated: 2019/02/12 13:51:17 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "mlx_macro_keys.h"
-#include "fdf.h"
+#include "fractol.h"
 #include <mlx.h>
+#include "mlx_macro_keys.h"
 
-int		user_command(int key, void *param)
+void	change_type_julia(int key, t_fract *fract)
 {
-	t_fdf	*fdf;
-
-	fdf = (t_fdf*)param;
-	if (key == KEY_ESCAPE)
-		exit(0);
-	if (key == KEY_PAD_ADD || key == KEY_PAD_SUB || key == KEY_MINUS \
-			|| key == KEY_EQUAL)
-		zoom(key, fdf);
-	else if (key == KEY_LEFT || key == KEY_RIGHT || key == KEY_DOWN \
-			|| key == KEY_UP)
-		translation(key, fdf);
-	else if (key == KEY_PAD_1 || key == KEY_PAD_2 || key == KEY_PAD_3\
-			|| key == KEY_PAD_4 || key == KEY_PAD_6\
-			|| key == KEY_PAD_7 || key == KEY_PAD_8 || key == KEY_PAD_9)
-		rotation(key, fdf);
-	else if (key == KEY_I || key == KEY_P)
-		projection(key, fdf);
-	return (0);
+	fract = new_img(fract);
+	if (key == KEY_PAGE_UP)
+	{
+		++fract->type_julia;
+		if (fract->type_julia == 6)
+			fract->type_julia = 0;
+	}
+	else if (key == KEY_PAGE_DOWN)
+	{
+		--fract->type_julia;
+		if (fract->type_julia == -1)
+			fract->type_julia = 5;
+	}
+	init_params(fract, 1);
+	reload(fract);
 }
 
-int		close(void *param)
+void	change_fract(int key, t_fract *fract)
 {
-	free_all(param);
-	exit(0);
-	return (0);
+	fract = new_img(fract);	
+	if (key == KEY_LESS_THAN)
+	{
+		--fract->type;
+		if (fract->type == 0)
+			fract->type = 4;
+	}
+	if (key == KEY_MORE_THAN)
+	{
+		++fract->type;
+		if (fract->type == 5)
+			fract->type = 1;
+	}
+	init_params(fract, 1);
+	reload(fract);
 }
 
-void	get_ctrl(t_fdf *fdf)
+void	zoom(int key, t_fract *fract)
 {
-	mlx_hook(fdf->mlx->win, 2, 0, user_command, fdf);
-	mlx_hook(fdf->mlx->win, 17, 0, close, fdf);
+	fract = new_img(fract);
+	if (key == KEY_PAD_ADD || key == KEY_EQUAL || key == MOUSE_SCROLL_UP)
+	{
+		fract->min.x = (fract->mouse.act_x / fract->zoom + fract->min.x)\
+					   - (fract->mouse.act_x / (fract->zoom * 1.3));
+		fract->min.y = (fract->mouse.act_y / fract->zoom + fract->min.y)\
+					   - (fract->mouse.act_y / (fract->zoom * 1.3));
+		fract->zoom *= 1.1;
+	}
+	else if (key == KEY_PAD_SUB || key == KEY_MINUS || key == MOUSE_SCROLL_DOWN)
+	{
+		fract->min.x = (fract->mouse.act_x / fract->zoom + fract->min.x)\
+					   - (fract->mouse.act_x / (fract->zoom / 1.3));
+		fract->min.y = (fract->mouse.act_y / fract->zoom + fract->min.y)\
+					   - (fract->mouse.act_y / (fract->zoom / 1.3));
+		fract->zoom /= 1.1;
+	}
+	reload(fract);
+}
+
+void	space(t_fract *fract)
+{
+	fract = new_img(fract);
+	fract->toggle_menu *= -1;
+	reload(fract);
+}
+
+void	translation(int key, t_fract *	fract)
+{
+	fract = new_img(fract);
+	if (key == KEY_LEFT)
+		fract->min.x += 30 / fract->zoom;
+	if (key == KEY_RIGHT)
+		fract->min.x -= 30 / fract->zoom;
+	if (key == KEY_UP)
+		fract->min.y += 30 / fract->zoom;
+	if (key == KEY_DOWN)
+		fract->min.y -= 30 / fract->zoom;
+	reload(fract);
 }
