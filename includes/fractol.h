@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 11:34:39 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 12:02:27 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_fract			*init_fract(const char *s);
 void			init_params(t_fract *fract, int cases);
 void			mandel(t_fract *fract);
 void			julia(t_fract *fract);
-void			koch(t_fract *fract);
 void			barnsley(t_fract *fract);
 t_pt			init_pt(float x, float y);
 void			print_menu(t_fract *fract);

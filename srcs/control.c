@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:53:28 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 11:34:40 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 12:00:23 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			close(void *param)
 	return (0);
 }
 
-void		shlag(int key, t_fract *fract)
+static void	change_color(int key, t_fract *fract)
 {
 	fract = new_img(fract);
 	if (key == KEY_PAD_1)
@@ -59,7 +59,7 @@ int			user_command(int key, void *param)
 		change_type_julia(key, fract);
 	if (key == KEY_PAD_1 || key == KEY_PAD_2 || key == KEY_PAD_3\
 			|| key == KEY_PAD_4)
-		shlag(key, fract);
+		change_color(key, fract);
 	if (key == KEY_ENTER)
 		change_paddle(fract);
 	return (0);

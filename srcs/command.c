@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 09:05:47 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 15:36:01 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:59:33 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	change_fract(int key, t_fract *fract)
 	{
 		--fract->type;
 		if (fract->type == 0)
-			fract->type = 4;
+			fract->type = 3;
 	}
 	if (key == KEY_MORE_THAN)
 	{
 		++fract->type;
-		if (fract->type == 5)
+		if (fract->type == 4)
 			fract->type = 1;
 	}
 	init_params(fract, 1);

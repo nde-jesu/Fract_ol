@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:08:38 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 17:13:27 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 12:01:57 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ void	reload(t_fract *fract)
 	else if (fract->type == 2)
 		julia(fract);
 	else if (fract->type == 3)
-		koch(fract);
-	else if (fract->type == 4)
 		barnsley(fract);
 }

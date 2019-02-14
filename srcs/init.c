@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 11:05:05 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 12:00:57 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ int				check_type(t_fract *fract, char const *s)
 		fract->type = 1;
 	else if (!(ft_strcmp(s, "julia")))
 		fract->type = 2;
-	else if (!(ft_strcmp(s, "koch")))
-		fract->type = 3;
 	else if (!(ft_strcmp(s, "barnsley")))
-		fract->type = 4;
+		fract->type = 3;
 	else
 		return (1);
 	return (0);
