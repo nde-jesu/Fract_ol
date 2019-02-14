@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:53:28 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 17:11:49 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:34:40 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int			close(void *param)
 	return (0);
 }
 
-static void	norme(int key, t_fract *fract)
+void		shlag(int key, t_fract *fract)
 {
+	fract = new_img(fract);
 	if (key == KEY_PAD_1)
-		fract->paddle_choice = 0;
+		choice_color(fract, 0);
 	else if (key == KEY_PAD_2)
-		fract->paddle_choice = 1;
+		choice_color(fract, 1);
 	else if (key == KEY_PAD_3)
-		fract->paddle_choice = 2;
+		choice_color(fract, 2);
 	else if (key == KEY_PAD_4)
-		fract->paddle_choice = 3;
-	choice_color(fract);
+		choice_color(fract, 3);
 	reload(fract);
 }
 
@@ -57,7 +57,11 @@ int			user_command(int key, void *param)
 		change_fract(key, fract);
 	else if (key == KEY_PAGE_UP || key == KEY_PAGE_DOWN)
 		change_type_julia(key, fract);
-	norme(key, fract);
+	if (key == KEY_PAD_1 || key == KEY_PAD_2 || key == KEY_PAD_3\
+			|| key == KEY_PAD_4)
+		shlag(key, fract);
+	if (key == KEY_ENTER)
+		change_paddle(fract);
 	return (0);
 }
 

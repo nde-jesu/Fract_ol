@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 16:07:28 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:05:05 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ t_fract			*init_fract(const char *s)
 	if (!(fract->mlx->img->ptr = mlx_new_image(fract->mlx->ptr, WIDTH, HEIGHT)))
 		return (NULL);
 	init_params(fract, 0);
-	fract->paddle_choice = 0;
-	choice_color(fract);
+	choice_color(fract, 0);
 	return (fract);
 }

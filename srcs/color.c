@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 14:53:47 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 17:09:31 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:54:56 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,43 @@ int			get_clr(int min, int max, int act, t_fract *fract)
 		return (fract->paddle[4]);
 }
 
-static void	norme(t_fract *fract)
+void		change_paddle(t_fract *fract)
 {
-	if (fract->paddle_choice == 2)
+	int		tmp;
+	int		i;
+
+	i = -1;
+	fract = new_img(fract);
+	tmp = fract->paddle[0];
+	while (++i < 4)
+		fract->paddle[i] = fract->paddle[i + 1];
+	fract->paddle[4] = tmp;
+	reload(fract);
+}
+
+static void	norme(t_fract *fract, int paddle_choice)
+{
+	if (paddle_choice == 2)
 	{
-		fract->paddle[0] = 0x00ff00;
-		fract->paddle[1] = 0xff0000;
-		fract->paddle[2] = 0x0000ff;
-		fract->paddle[3] = 0xff00ff;
+		fract->paddle[0] = 0xffd700;
+		fract->paddle[1] = 0xffe436;
+		fract->paddle[2] = 0xf7e55f;
+		fract->paddle[3] = 0xfeea73;
 		fract->paddle[4] = 0xffff00;
 	}
 	else
 	{
-		fract->paddle[0] = 0x00ff00;
-		fract->paddle[1] = 0xff0000;
-		fract->paddle[2] = 0x0000ff;
-		fract->paddle[3] = 0xff00ff;
-		fract->paddle[4] = 0xffff00;
+		fract->paddle[0] = 0x8b0000;
+		fract->paddle[1] = 0xb22222;
+		fract->paddle[2] = 0xcd5c5c;
+		fract->paddle[3] = 0xf08080;
+		fract->paddle[4] = 0xff0000;
 	}
 }
 
-void		choice_color(t_fract *fract)
+void		choice_color(t_fract *fract, int paddle_choice)
 {
-	if (fract->paddle_choice == 0)
+	if (paddle_choice == 0)
 	{
 		fract->paddle[0] = 0x00ff00;
 		fract->paddle[1] = 0xff0000;
@@ -59,13 +73,14 @@ void		choice_color(t_fract *fract)
 		fract->paddle[3] = 0xff00ff;
 		fract->paddle[4] = 0xffff00;
 	}
-	else if (fract->paddle_choice == 1)
+	else if (paddle_choice == 1)
 	{
-		fract->paddle[0] = 0xffff00;
-		fract->paddle[1] = 0xff00ff;
-		fract->paddle[2] = 0x0000ff;
-		fract->paddle[3] = 0xff0000;
-		fract->paddle[4] = 0x00ff00;
+		fract->paddle[0] = 0xfee7f0;
+		fract->paddle[1] = 0xe9c9b1;
+		fract->paddle[2] = 0xdfff00;
+		fract->paddle[3] = 0x6c0277;
+		fract->paddle[4] = 0x4b0082;
 	}
-	norme(fract);
+	else
+		norme(fract, paddle_choice);
 }

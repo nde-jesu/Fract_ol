@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:23:18 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/12 17:23:19 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:06:32 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,23 +71,21 @@ static int		norme3(t_fract *fract)
 
 void			julia(t_fract *fract)
 {
-	t_pt	*ct;
+	t_pt	ct;
 	int		i;
 
-	if (!(ct = (t_pt*)malloc(sizeof(t_pt))))
-		return ;
-	ct->x = -1;
-	while (++ct->x < WIDTH)
+	ct.x = -1;
+	while (++ct.x < WIDTH)
 	{
-		ct->y = -1;
-		while (++ct->y < HEIGHT)
+		ct.y = -1;
+		while (++ct.y < HEIGHT)
 		{
 			fract->c = type_julia(fract);
-			fract->z = init_pt(ct->x / fract->zoom + fract->min.x,\
-					ct->y / fract->zoom + fract->min.y);
+			fract->z = init_pt(ct.x / fract->zoom + fract->min.x,\
+					ct.y / fract->zoom + fract->min.y);
 			i = norme3(fract);
-			ct->clr = get_clr(0, fract->i_max, i, fract);
-			put_pixel_img(fract->mlx->img, ct->x, ct->y, ct->clr);
+			ct.clr = get_clr(0, fract->i_max, i, fract);
+			put_pixel_img(fract->mlx->img, ct.x, ct.y, ct.clr);
 		}
 	}
 	mlx_put_image_to_window(fract->mlx->ptr, fract->mlx->win, \

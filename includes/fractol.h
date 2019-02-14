@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/12 17:03:03 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:34:39 by reda-con         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct	s_mouse
 
 typedef struct	s_fract
 {
-	int		paddle_choice;
 	int		paddle[5];
 	t_pt	min;
 	t_pt	max;
@@ -103,7 +102,8 @@ void			change_type_julia(int key, t_fract *fract);
 void			reload(t_fract *fract);
 int				get_clr(int min, int max, int act, t_fract *fract);
 float			square(float n);
-void			choice_color(t_fract *fract);
+void			choice_color(t_fract *fract, int paddle_choice);
 double			percent(int start, int end, int act);
+void			change_paddle(t_fract *fract);
 
 #endif
