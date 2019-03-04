@@ -6,10 +6,12 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:08:38 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/14 12:01:57 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/04 14:27:16 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <mlx.h>
 #include "fractol.h"
 
 float	square(float n)
@@ -35,4 +37,13 @@ void	reload(t_fract *fract)
 		julia(fract);
 	else if (fract->type == 3)
 		barnsley(fract);
+}
+
+void	free_all(t_fract *fract)
+{
+		mlx_destroy_image(fract->mlx->ptr, fract->mlx->img->ptr);
+		free(fract->mlx->img);
+		mlx_destroy_window(fract->mlx->ptr, fract->mlx->win);
+		free(fract->mlx);
+		free(fract);
 }

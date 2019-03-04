@@ -6,7 +6,7 @@
 #    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/16 08:17:01 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/02/14 12:02:15 by nde-jesu         ###   ########.fr        #
+#    Updated: 2019/03/04 14:12:33 by nde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,11 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(MLX) $(OBJ_DIR) $(OBJ)
 	@echo "$(RED)Sources compilation $(RESET)[$(BLUE)OK$(RESET)]\n"
 	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJ) -o $(NAME)
-	@sleep 1
 	@echo "[$(BLUE) Fract_ol Compiled $(RESET)]"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "\n$(BLUE)Obj directory...$(RESET)[$(GREEN)created$(RESET)]\n"
-	@sleep 1
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
@@ -68,21 +66,17 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
 
 $(LIBFT):
 	@$(MAKE) -sC $(LIBFT_DIR)
-	@sleep 1
 
 clean:
 	@$(MAKE) -sC $(LIBFT_DIR) clean
 	@rm -rf $(OBJ_DIR)
 	@echo "\n$(RED)Obj directory...$(RESET)[$(PURPLE)deleted$(RESET)]\n"
-	@sleep 1
 
 fclean: clean
 	@rm -f $(LIBFT)
 	@echo "$(RED)Libft...$(RESET)[$(PURPLE)deleted$(RESET)]\n"
-	@sleep 1
 	@rm -f $(NAME)
 	@echo "$(RED)Fract_ol...$(RESET)[$(PURPLE)deleted$(RESET)]\n"
-	@sleep 1
 
 re:
 	@$(MAKE) fclean

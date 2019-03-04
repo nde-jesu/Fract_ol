@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:59:36 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 12:00:57 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/04 14:17:48 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ t_fract			*init_fract(const char *s)
 		return (NULL);
 	if (!(fract->mlx->img = (t_img*)malloc(sizeof(t_img))))
 		return (NULL);
-	fract->mlx->ptr = mlx_init();
 	if (check_type(fract, s))
 		return (NULL);
+	fract->mlx->ptr = mlx_init();
 	if (!(fract->mlx->win = mlx_new_window(fract->mlx->ptr, WIDTH,
 					HEIGHT, "Fract_ol")))
 		return (NULL);

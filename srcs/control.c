@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:53:28 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 12:00:23 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/04 14:47:05 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int			close(void *param)
 {
-	free(param);
+	free_all((t_fract*)param);
 	exit(0);
 	return (0);
 }
