@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 08:58:43 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/02/14 11:33:50 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/03/06 09:16:41 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@
 # define KEY_LESS_THAN 43
 # define KEY_MORE_THAN 47
 # define KEY_M 46
+# define KEY_CLEAR 71
 #endif

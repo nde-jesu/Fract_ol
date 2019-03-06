@@ -6,7 +6,7 @@
 #    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/16 08:17:01 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/03/04 14:12:33 by nde-jesu         ###   ########.fr        #
+#    Updated: 2019/03/06 08:50:20 by nde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 SRC_LIST = main.c image_control.c init.c mandelbrot.c julia.c menu.c control.c \
-		   command.c mouse.c barnsley.c color.c utils.c
+		   command.c mouse.c barnsley.c color.c utils.c zoom.c
 SRC_DIR = ./srcs/
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

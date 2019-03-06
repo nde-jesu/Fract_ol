@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/03/04 14:16:35 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/06 09:18:18 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ void			choice_color(t_fract *fract, int paddle_choice);
 double			percent(int start, int end, int act);
 void			change_paddle(t_fract *fract);
 void			free_all(t_fract *fract);
+void			reset(t_fract *fract);
 
 #endif
