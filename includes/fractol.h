@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 08:12:01 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/03/06 09:18:18 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/06 11:01:16 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define HEIGHT 600
 # define WIDTH 750
+# define ZOOM 1.1
+# define ME_COLOR 0x338984
 # define X_M -2.5
 # define X_L 1.0
 # define Y_M -1.5
@@ -81,11 +83,10 @@ typedef struct	s_fract
 }				t_fract;
 
 void			put_pixel_img(t_img *img, int x, int y, int color);
-void			img_draw_line(t_pt a, t_pt b, t_img *img, int color);
 t_fract			*init_fract(const char *s);
 void			init_params(t_fract *fract, int cases);
 void			mandel(t_fract *fract);
-void			julia(t_fract *fract);
+void			julia(t_fract *fract, int cases);
 void			barnsley(t_fract *fract);
 t_pt			init_pt(float x, float y);
 void			print_menu(t_fract *fract);

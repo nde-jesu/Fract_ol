@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:23:18 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/14 11:06:32 by reda-con         ###   ########.fr       */
+/*   Updated: 2019/03/06 10:04:47 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int		norme3(t_fract *fract)
 	return (i);
 }
 
-void			julia(t_fract *fract)
+void			julia(t_fract *fract, int cases)
 {
 	t_pt	ct;
 	int		i;
@@ -80,7 +80,8 @@ void			julia(t_fract *fract)
 		ct.y = -1;
 		while (++ct.y < HEIGHT)
 		{
-			fract->c = type_julia(fract);
+			if (cases == 1)
+				fract->c = type_julia(fract);
 			fract->z = init_pt(ct.x / fract->zoom + fract->min.x,\
 					ct.y / fract->zoom + fract->min.y);
 			i = norme3(fract);

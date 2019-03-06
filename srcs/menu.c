@@ -6,7 +6,7 @@
 /*   By: reda-con <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:23:36 by reda-con          #+#    #+#             */
-/*   Updated: 2019/02/14 12:06:27 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/06 11:03:05 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,23 @@ void	print_menu(t_fract *fract)
 
 	win = fract->mlx->win;
 	ptr = fract->mlx->ptr;
-	mlx_string_put(ptr, win, 10, 10, 0xEAEAEA, "Fract'ol");
+	mlx_string_put(ptr, win, 10, 10, ME_COLOR, "Fract'ol");
 	if (fract->type == 1)
-		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Mandelbrot");
+		mlx_string_put(ptr, win, 10, 60, ME_COLOR, "Fractal : Mandelbrot");
 	else if (fract->type == 2)
 	{
-		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Julia");
-		mlx_string_put(ptr, win, 10, 200, 0xEAEAEA, "M : activate iterations");
-		mlx_string_put(ptr, win, 10, 220, 0xEAEAEA,\
-				"Pge Up / Down : change type");
+		mlx_string_put(ptr, win, 10, 60, ME_COLOR, "Fractal : Julia");
+		mlx_string_put(ptr, win, 10, 200, ME_COLOR, "M : activate iterations");
+		mlx_string_put(ptr, win, 10, 220, ME_COLOR, "Pg Up/Down : change type");
 	}
 	else
-		mlx_string_put(ptr, win, 10, 60, 0xEAEAEA, "Fractal : Barnsley");
-	mlx_string_put(ptr, win, 10, 100, 0xEAEAEA, "How to use :");
-	mlx_string_put(ptr, win, 10, 120, 0xEAEAEA, "< or > : change fractal");
-	mlx_string_put(ptr, win, 10, 140, 0xEAEAEA, "Numpad : Change paddle color");
-	mlx_string_put(ptr, win, 10, 160, 0xEAEAEA, "Enter : Change colors in paddle");
-	mlx_string_put(ptr, win, 10, 180, 0xEAEAEA, "ESC : quit");
-	mlx_string_put(ptr, win, 620, 540, 0xEAEAEA, "Created by :");
-	mlx_string_put(ptr, win, 620, 560, 0xEAEAEA, "Reda-con");
-	mlx_string_put(ptr, win, 620, 580, 0xEAEAEA, "Nde-Jesu");
+		mlx_string_put(ptr, win, 10, 60, ME_COLOR, "Fractal : Barnsley");
+	mlx_string_put(ptr, win, 10, 100, ME_COLOR, "How to use :");
+	mlx_string_put(ptr, win, 10, 120, ME_COLOR, "< or > : change fractal");
+	mlx_string_put(ptr, win, 10, 140, ME_COLOR, "Numpad : Change color paddle");
+	mlx_string_put(ptr, win, 10, 160, ME_COLOR, "Enter : Swap color in paddle");
+	mlx_string_put(ptr, win, 10, 180, ME_COLOR, "ESC : quit");
+	mlx_string_put(ptr, win, 620, 540, ME_COLOR, "Created by :");
+	mlx_string_put(ptr, win, 620, 560, ME_COLOR, "Reda-con");
+	mlx_string_put(ptr, win, 620, 580, ME_COLOR, "Nde-Jesu");
 }

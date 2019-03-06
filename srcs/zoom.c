@@ -6,7 +6,7 @@
 /*   By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 08:22:09 by nde-jesu          #+#    #+#             */
-/*   Updated: 2019/03/06 09:27:40 by nde-jesu         ###   ########.fr       */
+/*   Updated: 2019/03/06 09:39:55 by nde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static void		zoom_in(t_fract *fract, t_pt pt)
 	t_pt	i;
 	t_pt	zoom;
 
-	i.x = fract->mouse.act_x / fract->zoom * 1.1 + fract->min.x;
-	i.y = fract->mouse.act_y / fract->zoom * 1.1 + fract->min.y;
-	zoom.x = pt.x * (0.1 / 1.1);
-	zoom.y = pt.y * (0.1 / 1.1);
-	i.x = (pt.x - (i.x - fract->min.x)) * 0.1 / 1.1 ;
-	i.y = (pt.y - (i.y - fract->min.y)) * 0.1 / 1.1;
+	i.x = fract->mouse.act_x / fract->zoom * ZOOM + fract->min.x;
+	i.y = fract->mouse.act_y / fract->zoom * ZOOM + fract->min.y;
+	zoom.x = pt.x * (((float)ZOOM - 1) / (float)ZOOM);
+	zoom.y = pt.y * (((float)ZOOM - 1) / (float)ZOOM);
+	i.x = (pt.x - (i.x - fract->min.x)) * ((float)ZOOM - 1) / (float)ZOOM;
+	i.y = (pt.y - (i.y - fract->min.y)) * ((float)ZOOM - 1) / (float)ZOOM;
 	fract->min.x += zoom.x - i.x;
 	fract->min.y += zoom.y - i.y;
 	fract->max.x += -zoom.x - i.x;
@@ -35,12 +35,12 @@ static void		zoom_out(t_fract *fract, t_pt pt)
 	t_pt	i;
 	t_pt	zoom;
 
-	i.x = fract->mouse.act_x / fract->zoom * 1.1 + fract->min.x;
-	i.y = fract->mouse.act_y / fract->zoom * 1.1 + fract->min.y;
-	zoom.x = pt.x * (0.1 / 1.1);
-	zoom.y = pt.y * (0.1 / 1.1);
-	i.x = ((pt.x - i.x) - fract->min.x) * 0.1 / 1.1;
-	i.y = ((pt.y - i.y) - fract->min.y) * 0.1 / 1.1;
+	i.x = fract->mouse.act_x / fract->zoom * ZOOM + fract->min.x;
+	i.y = fract->mouse.act_y / fract->zoom * ZOOM + fract->min.y;
+	zoom.x = pt.x * (((float)ZOOM - 1) / (float)ZOOM);
+	zoom.y = pt.y * (((float)ZOOM - 1) / (float)ZOOM);
+	i.x = ((pt.x - i.x) - fract->min.x) * ((float)ZOOM - 1) / (float)ZOOM;
+	i.y = ((pt.y - i.y) - fract->min.y) * ((float)ZOOM - 1) / (float)ZOOM;
 	fract->min.x += -zoom.x - i.x;
 	fract->min.y += -zoom.y - i.y;
 	fract->max.x += zoom.x - i.x;
@@ -61,18 +61,18 @@ static void		new_bounds(t_fract *fract, int cases)
 void			zoom(int key, t_fract *fract)
 {
 	int		cases;
-	
+
 	fract = new_img(fract);
 	if (key == KEY_PAD_ADD || key == KEY_EQUAL || key == MOUSE_SCROLL_UP)
 	{
 		cases = 1;
-		fract->zoom *= 1.1;
+		fract->zoom *= (float)ZOOM;
 		new_bounds(fract, cases);
 	}
 	if (key == KEY_PAD_SUB || key == KEY_MINUS || key == MOUSE_SCROLL_DOWN)
 	{
 		cases = 0;
-		fract->zoom /= 1.1;
+		fract->zoom /= (float)ZOOM;
 		new_bounds(fract, cases);
 	}
 	reload(fract);
