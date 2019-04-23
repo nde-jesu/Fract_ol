@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nde-jesu <nde-jesu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 15:08:50 by nde-jesu          #+#    #+#              #
-#    Updated: 2019/02/06 09:57:25 by nde-jesu         ###   ########.fr        #
+#    Updated: 2019/04/23 15:32:56 by nde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,22 +108,18 @@ all: $(NAME)
 
 $(OBJDIR)%.o:$(SRCDIR)%.c
 		@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCDIR)
-		@echo "\033[033m$(notdir $(basename $@))...\033[0m[\033[32mOK\033[0m\033[00m]"
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
 $(NAME): $(OBJDIR) $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
-	@echo "[ \033[36mLibft compiled\033[00m ]"
 
 clean:
 		@rm -rf $(OBJ) $(OBJDIR)
-		@echo "\033[031mCleaning libft...\033[0m[\033[35mComplete\033[0m\033[00m]"
 
 fclean: clean
 		@rm -f $(NAME)
-		@echo "\033[031mFull cleaning libft...\033[0m[\033[35mComplete\033[0m\033[00m]"
 
 re: fclean all
 
