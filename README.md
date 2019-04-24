@@ -2,4 +2,6 @@
 
 Project Fract_ol at School 42
 
-For now, the project isn't finished.
+# Installation
+  
+  `make` then `./fractol [Name]`
