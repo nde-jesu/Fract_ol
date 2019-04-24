@@ -1,6 +1,0 @@
-couleurs
-julia good
-
-nouvelle(s) fractale(s)
-rotation z
-+ de couleurs
